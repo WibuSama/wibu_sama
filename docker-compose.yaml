@@ -18,14 +18,11 @@ services:
       #- 3306
       #- 33060
   wordpress:
-    image: wordpress:latest
+    build:
+      dockerfile: ./Dockerfile
+      context: .
     ports:
       - 80:80
     restart: always
-    environment:
-      - WORDPRESS_DB_HOST=192.168.26.91:3306
-      - WORDPRESS_DB_USER=wordpress
-      - WORDPRESS_DB_PASSWORD=wordpress
-      - WORDPRESS_DB_NAME=wordpress
 volumes:
   db_data:
